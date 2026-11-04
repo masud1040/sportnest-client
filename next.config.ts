@@ -1,18 +1,17 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
-  experimental: {
-    agentFeedback: true,
-  },
-  reactCompiler: true,
-  turbopack: {
-    rules: {
-      "*.css": {
-        loaders: ["@tailwindcss/turbopack"],
-        as: "*.css",
+  images: {
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "**", // Je kono HTTPS domain theke image load hote dibe
       },
-    },
+      {
+        protocol: "http",
+        hostname: "**", // Local ba HTTP domain-o allow korar jonno
+      },
+    ],
   },
 };
 
